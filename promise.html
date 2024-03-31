@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+
+    <button class="btn">Request</button>
+    <script src="./script.js"></script>
+</body>
+<script type="text/javascript">
+  function call(){
+
+    const request = fetch('https://course-api.com/react-store-products').then((response) =>{
+        console.log(response);
+        return response.json()
+    }).then((data) =>{
+        console.log(data);
+    }).catch((e)=>{
+      alert(e);
+    }).finally(()=>{
+      console.log('will always run...');
+    })
+
+}
+
+let lottery = new Promise(function(resolve, reject){
+    alert("Lottery is happening");
+
+    setTimeout(() => {
+        if(Math.random()*10 >= 5){
+            resolve("You Won!!!")
+        }
+        else{
+            reject(new Error("Better luck next time"))
+        }
+    }, 5000);
+
+})
+
+function lotteryCall(){
+  const req = lottery.then((response) =>{
+    alert(response);
+}).catch((err) =>{
+    alert(err);
+})
+
+}
+
+const btn = document.querySelector("button")
+btn.addEventListener("click", function(){
+    lotteryCall();
+})
+</script>
+</html>

@@ -92,6 +92,8 @@ employee.forEach((value) => {
   console.log(value);
 });
 
+
+
 //Array methods
 student.push('maths is intresting subject');
 console.log(student);
@@ -258,3 +260,5 @@ console.log(string1 == string3); // true
 console.log(string2 == string3); // true
 console.log(string3 == string4); // false
 console.log(string4 == string4); // true
+
+console.log(NaN == NaN);
